@@ -1,0 +1,1 @@
+{"ssl":false,"host":"localhost","port":5442,"schema":"public","database":"db2","password":"admin","ssl_mode":{"mode":"disable"},"username":"postgres","tunnel_method":{"tunnel_method":"NO_TUNNEL"}}
