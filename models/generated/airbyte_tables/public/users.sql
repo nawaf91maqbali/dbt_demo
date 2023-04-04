@@ -20,6 +20,26 @@
                         "],
     tags = [ "top-level" ]
 ) }}
+
+-- remove column from the table
+{{ config(
+   post_hook="ALTER TABLE {{ this }} DROP COLUMN _airbyte_ab_id"
+) }}
+{{ config(
+   post_hook="ALTER TABLE {{ this }} DROP COLUMN _airbyte_emitted_at"
+) }}
+{{ config(
+   post_hook="ALTER TABLE {{ this }} DROP COLUMN _airbyte_normalized_at"
+) }}
+{{ config(
+   post_hook="ALTER TABLE {{ this }} DROP COLUMN _airbyte_users_hashid"
+) }}
+
+-- rename the name of the table
+{{ config(
+   post_hook="ALTER TABLE {{ this }} RENAME TO my_users"
+) }}
+
 -- Final base SQL model
 -- depends_on: {{ ref('users_ab3') }}
 select
