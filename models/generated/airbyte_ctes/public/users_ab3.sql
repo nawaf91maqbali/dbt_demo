@@ -8,18 +8,18 @@
 -- depends_on: {{ ref('users_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        adapter.quote('id'),
-        'email',
-        'mobile',
-        'omsb_id',
-        'bank_name',
         'full_name',
-        'last_name',
-        'account_no',
-        'first_name',
-        'branch_name',
         'key_cloak_id',
         'date_of_birth',
+        'branch_name',
+        'mobile',
+        'bank_name',
+        'last_name',
+        adapter.quote('id'),
+        'omsb_id',
+        'account_no',
+        'first_name',
+        'email',
     ]) }} as _airbyte_users_hashid,
     tmp.*
 from {{ ref('users_ab2') }} tmp

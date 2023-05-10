@@ -9,7 +9,7 @@ normalize:
       dbname: db2
       host: localhost
       pass: admin
-      port: 5442
+      port: 5445
       schema: public
       threads: 8
       type: postgres
