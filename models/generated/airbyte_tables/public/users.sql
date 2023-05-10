@@ -23,16 +23,6 @@
 -- Final base SQL model
 -- depends_on: {{ ref('users_ab3') }}
 
--- update value of column in the table
---{{ config(
-   --post_hook="UPDATE {{ this }} SET user_mobile='93508063'"
---) }}
-
--- add new column to the table
---{{ config(
-  -- post_hook="ALTER TABLE {{ this }} ADD isAdded bool default false"
---) }}
-
 -- remove column from the table
 {{ config(
    post_hook="ALTER TABLE {{ this }} DROP COLUMN _airbyte_ab_id"
@@ -47,11 +37,6 @@
    post_hook="ALTER TABLE {{ this }} DROP COLUMN _airbyte_users_hashid"
 ) }}
 
--- rename the name of the table
---{{ config(
-   --post_hook="ALTER TABLE {{ this }} RENAME TO my_users"
---) }}
-
 
 -- Drop table from database
 {{ config(
@@ -63,12 +48,7 @@ select
     first_name,
     last_name,
     full_name,
-    --key_cloak_id,
-    --branch_name,
     mobile,
-    --bank_name,
-    --omsb_id,
-    --account_no,
     email,
     date_of_birth,
     _airbyte_ab_id,
